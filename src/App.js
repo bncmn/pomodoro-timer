@@ -26,7 +26,7 @@ function App() {
               setWorkPhaseCount(workPhaseCount + 1);
               setMinutes(5); // Time for break phase
             } else {
-              setMinutes(25); // Time for work phase
+              setMinutes(1); // Time for work phase
             }
           } else {
             setMinutes(minutes - 1);
