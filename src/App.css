@@ -1,9 +1,6 @@
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.sidebar {
+  background-color: #f0f0f0;
+  padding: 20px;
 }
 
 .timer {
@@ -44,4 +41,16 @@
 
 .control-btn:hover {
   background-color: #0056b3;
+}
+
+.image-container {
+  width: 100vw; /* Set width to 100% of viewport width */
+  height: 100vh; /* Set height to 100% of viewport height */
+  overflow: hidden; /* Hide any overflowing content */
+}
+
+.image-container img {
+  width: 100%; /* Make the image width fill the container */
+  height: 100%; /* Make the image height fill the container */
+  object-fit: cover; /* Scale the image while preserving aspect ratio to cover the entire container */
 }

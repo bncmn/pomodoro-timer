@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { TiArrowBackOutline, TiArrowForwardOutline } from 'react-icons/ti';
+import Sidebar from './sidebar';
+import backgroundImage from './static_image.png';
 import './App.css';
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
     }
 
     return () => clearInterval(intervalId);
-  }, [isActive, minutes, seconds, isWorkPhase, workPhaseCount]);
+  }, [minutes, seconds, isWorkPhase, isActive, workPhaseCount]);
 
   const toggleTimer = () => {
     setIsActive(!isActive);
@@ -54,20 +55,17 @@ function App() {
 
   return (
     <div className="App">
-      <div className="timer">
-        <h1>
-          {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
-        </h1>
-        <p className="phase">{isWorkPhase ? 'Work Phase' : 'Break Phase'}</p>
-        <p className="count">Work Phase Count: {workPhaseCount}</p>
-      </div>
-      <div className="controls">
-        <button className="control-btn" onClick={toggleTimer}>
-          {isActive ? <TiArrowBackOutline /> : <TiArrowForwardOutline />}
-        </button>
-        <button className="control-btn" onClick={resetTimer}>
-          Reset
-        </button>
+      <Sidebar
+        minutes={minutes}
+        seconds={seconds}
+        isWorkPhase={isWorkPhase}
+        workPhaseCount={workPhaseCount}
+        isActive={isActive} // Pass isActive as a prop
+        toggleTimer={toggleTimer}
+        resetTimer={resetTimer}
+      />
+      <div className="image-container">
+        <img src={backgroundImage} alt="Background"/>
       </div>
     </div>
   );
