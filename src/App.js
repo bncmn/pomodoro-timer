@@ -58,12 +58,16 @@ function App() {
         <h1>
           {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
         </h1>
-        <p>{isWorkPhase ? 'Work Phase' : 'Break Phase'}</p>
-        <p>Work Phase Count: {workPhaseCount}</p>
+        <p className="phase">{isWorkPhase ? 'Work Phase' : 'Break Phase'}</p>
+        <p className="count">Work Phase Count: {workPhaseCount}</p>
       </div>
       <div className="controls">
-        <button onClick={toggleTimer}>{isActive ? <TiArrowBackOutline /> : <TiArrowForwardOutline />}</button>
-        <button onClick={resetTimer}>Reset</button>
+        <button className="control-btn" onClick={toggleTimer}>
+          {isActive ? <TiArrowBackOutline /> : <TiArrowForwardOutline />}
+        </button>
+        <button className="control-btn" onClick={resetTimer}>
+          Reset
+        </button>
       </div>
     </div>
   );
